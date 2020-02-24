@@ -58,7 +58,7 @@ class _ChatViewState extends State<ChatView> {
                     child: TextFormField(
                       controller: _controller,
                       onFieldSubmitted: (String _message) {
-                        print("on field submitted >> " +_message)
+                        print("on field submitted >> " +_message);
                       },
                       decoration: InputDecoration(
                           hintText: "Type your message",
