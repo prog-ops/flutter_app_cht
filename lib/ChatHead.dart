@@ -3,6 +3,31 @@ import 'package:flutter/material.dart';
 class ChatHead extends StatefulWidget {
   @override
   _ChatHeadState createState() => _ChatHeadState();
+
+  /**
+   * ! warning
+   * * highlight
+   * ? question
+   * todo variables
+   * fixme others
+   *
+   */
+
+  // this is friend name
+  final String friendName;
+
+  // this is text that will appear below the name
+  final String lastMessage;
+
+  // date time when message was sent
+  final DateTime messageTime;
+
+  ChatHead({
+    Key key,
+    this.friendName: "",
+    this.lastMessage: "",
+    this.messageTime
+  }) : super(key: key);
 }
 
 class _ChatHeadState extends State<ChatHead> {

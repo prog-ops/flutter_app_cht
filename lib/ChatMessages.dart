@@ -29,7 +29,7 @@ class _ChatMessagesState extends State<ChatMessages> {
           CircleAvatar(
             radius: 32,//34
             backgroundColor: Colors.white,
-            child: Text("F"),
+            child: Text("Friend"),
           ) : Container(),
           Expanded(
               child: Padding(
@@ -42,7 +42,7 @@ class _ChatMessagesState extends State<ChatMessages> {
           CircleAvatar(
             radius: 32,//34
             backgroundColor: Colors.white,
-            child: Text("U"),
+            child: Text("Me"),
           ) : Container(),
         ],
       ),
