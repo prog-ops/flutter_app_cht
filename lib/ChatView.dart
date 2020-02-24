@@ -46,13 +46,12 @@ class _ChatViewState extends State<ChatView> {
               ],
             ),
           )
-//          ChatMessages(isFriend: false, isNotPrevious: true, friendInitial: _friendInitial,)
         ],
       ),
       bottomNavigationBar: BottomAppBar(
         child: Row(
           children: <Widget>[
-            Expanded(child: Text("text here")),
+            Expanded(child: TextFormField()),
             IconButton(
                 icon: Icon(Icons.send),
                 onPressed: (){
