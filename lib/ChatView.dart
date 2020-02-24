@@ -49,7 +49,11 @@ class _ChatViewState extends State<ChatView> {
 
           Row(
             children: <Widget>[
-              Expanded(child: TextFormField()),
+              Expanded(child: TextFormField(
+                decoration: InputDecoration(
+                  hintText: "Type your message"
+                ),
+              )),
               IconButton(
                   icon: Icon(Icons.send),
                   onPressed: (){
