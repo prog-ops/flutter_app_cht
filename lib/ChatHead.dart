@@ -58,14 +58,12 @@ class _ChatHeadState extends State<ChatHead> {
               ],
             ),
           ),
-          Center(
-            child: CircleAvatar(
-              radius: 30.0,//76
-              child: Text(
-                "T",
-                style: Theme.of(context).textTheme.display1.apply(
-                  color: Colors.white, fontWeightDelta: 3
-                ),
+          CircleAvatar(
+            radius: 32.0,
+            child: Text(
+              widget.friendName.substring(0,1),
+              style: Theme.of(context).textTheme.display1.apply(
+                color: Colors.white, fontWeightDelta: 3
               ),
             ),
           ),
