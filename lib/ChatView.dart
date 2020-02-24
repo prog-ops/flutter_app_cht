@@ -15,8 +15,10 @@ class ChatView extends StatefulWidget {
   final String lastMessage;
 }
 
+
 class _ChatViewState extends State<ChatView> {
   String _friendInitial;
+  TextEditingController _controller = TextEditingController();
 
   @override
   void initState() {
@@ -54,6 +56,7 @@ class _ChatViewState extends State<ChatView> {
               children: <Widget>[
                 Expanded(
                     child: TextFormField(
+                      controller: _controller,
                       decoration: InputDecoration(
                           hintText: "Type your message",
                           labelText: "Your message",
@@ -67,7 +70,7 @@ class _ChatViewState extends State<ChatView> {
                       color: Colors.blue,
                     ),
                     onPressed: () {
-                      print("send message tapped");
+                      print("send message tapped >> " +_controller.text);
                     }),
               ],
             )
