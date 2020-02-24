@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_app_dapur_grid/ChatMessages.dart';
 
 class ChatView extends StatefulWidget {
   @override
@@ -13,7 +14,9 @@ class _ChatViewState extends State<ChatView> {
         title: Text("Friend's name"),
       ),
       body: ListView(
-
+        children: <Widget>[
+          ChatMessages()
+        ],
       ),
       bottomNavigationBar: BottomAppBar(
         child: Row(
