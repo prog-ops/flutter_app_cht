@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_app_dapur_grid/ChatView.dart';
 
 class ChatHead extends StatefulWidget {
   @override
@@ -15,10 +16,8 @@ class ChatHead extends StatefulWidget {
 
   // this is friend name
   final String friendName;
-
   // this is text that will appear below the name
   final String lastMessage;
-
   // date time when message was sent
   final DateTime messageTime;
 
@@ -31,8 +30,14 @@ class _ChatHeadState extends State<ChatHead> {
   @override
   Widget build(BuildContext context) {
     return InkWell(
-      onTap: (){
+      onTap: () async{
         print(widget.friendName+ " has been tapped");
+        await Navigator.of(context).push(MaterialPageRoute<Null>(
+          builder: (BuildContext context) {
+            return ChatView();
+          },
+          fullscreenDialog: true
+        ));
       },
       highlightColor: Colors.blue,
       child: Container(

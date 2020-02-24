@@ -37,7 +37,7 @@ class _ChatMessagesState extends State<ChatMessages> {
           CircleAvatar(
             radius: 32,//34
             backgroundColor: Colors.white,
-            child: Text("Friend"),
+            child: Text(widget.friendInitial),
           ) : Container(),
           Expanded(
               child: Padding(
