@@ -16,7 +16,7 @@ class _ChatViewState extends State<ChatView> {
       body: ListView(
         children: <Widget>[
           ChatMessages(isFriend: true, isNotPrevious: true,),
-          ChatMessages(isFriend: false,)
+          ChatMessages(isFriend: false, isNotPrevious: true,)
         ],
       ),
       bottomNavigationBar: BottomAppBar(
