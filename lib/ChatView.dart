@@ -43,19 +43,20 @@ class _ChatViewState extends State<ChatView> {
                   friendInitial: _friendInitial,
                   message: "I really want to be a pilot",
                 ),
-                Row(
-                  children: <Widget>[
-                    Expanded(child: TextFormField()),
-                    IconButton(
-                        icon: Icon(Icons.send),
-                        onPressed: (){
-                          print("send message tapped");
-                        }),
-                  ],
-                ),
               ],
             ),
-          )
+          ),
+
+          Row(
+            children: <Widget>[
+              Expanded(child: TextFormField()),
+              IconButton(
+                  icon: Icon(Icons.send),
+                  onPressed: (){
+                    print("send message tapped");
+                  }),
+            ],
+          ),
         ],
       ),
     );
