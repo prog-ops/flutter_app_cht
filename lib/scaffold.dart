@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_app_dapur_grid/ChatHead.dart';
 
 class MyChatApp extends StatefulWidget {
   @override
@@ -23,7 +24,18 @@ class _MyChatAppState extends State<MyChatApp> {
             ),
           ],
         ),
-        body: Center(child: Text("center")),
+
+        body: ListView(
+          children: <Widget>[
+            ChatHead(),
+//            ChatHead(),
+//            ChatHead(),
+//            ChatHead(),
+//            ChatHead(),
+//            ChatHead()
+          ],
+        ),
+
         bottomNavigationBar: BottomNavigationBar(
           currentIndex: _currentIndeks,
           items: <BottomNavigationBarItem>[
