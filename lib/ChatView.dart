@@ -16,6 +16,16 @@ class ChatView extends StatefulWidget {
 }
 
 class _ChatViewState extends State<ChatView> {
+  String _friendInitial;
+
+  @override
+  void initState() {
+    setState(() {
+      _friendInitial = widget.friendName.substring(0,1);
+    });
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(

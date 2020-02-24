@@ -34,7 +34,10 @@ class _ChatHeadState extends State<ChatHead> {
         print(widget.friendName+ " has been tapped");
         await Navigator.of(context).push(MaterialPageRoute<Null>(
           builder: (BuildContext context) {
-            return ChatView();
+            return ChatView(
+              friendName: widget.friendName,
+              lastMessage: "Snap",
+            );
           },
           fullscreenDialog: true
         ));
