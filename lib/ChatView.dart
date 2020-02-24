@@ -64,14 +64,19 @@ class _ChatViewState extends State<ChatView> {
                       ),
                     )
                 ),
-                IconButton(
-                    icon: Icon(
-                      Icons.send,
-                      color: Colors.blue,
-                    ),
-                    onPressed: () {
-                      print("send message tapped >> " +_controller.text);
-                    }),
+                Padding(
+                  padding: EdgeInsets.all(8.0),
+                  child: Center(
+                    child: IconButton(
+                        icon: Icon(
+                          Icons.send,
+                          color: Colors.blue,
+                        ),
+                        onPressed: () {
+                          print("send message tapped >> " + _controller.text);
+                        }),
+                  ),
+                )
               ],
             )
           )
