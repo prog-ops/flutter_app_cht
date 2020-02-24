@@ -47,20 +47,27 @@ class _ChatViewState extends State<ChatView> {
             ),
           ),
 
-          Row(
-            children: <Widget>[
-              Expanded(child: TextFormField(
-                decoration: InputDecoration(
-                  hintText: "Type your message"
+          Padding(
+            padding: EdgeInsets.all(16),
+            child: Row(
+              children: <Widget>[
+                Expanded(
+                    child: TextFormField(
+                      decoration: InputDecoration(
+                          hintText: "Type your message",
+                          labelText: "Your message",
+                          helperText: "Here's where the message goes"
+                      ),
+                    )
                 ),
-              )),
-              IconButton(
-                  icon: Icon(Icons.send),
-                  onPressed: (){
-                    print("send message tapped");
-                  }),
-            ],
-          ),
+                IconButton(
+                    icon: Icon(Icons.send),
+                    onPressed: () {
+                      print("send message tapped");
+                    }),
+              ],
+            )
+          )
         ],
       ),
     );
