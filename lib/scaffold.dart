@@ -13,7 +13,7 @@ class _MyChatAppState extends State<MyChatApp> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      /*home: Scaffold(
+      home: Scaffold(
         appBar: AppBar(
           title: Text("My chatapp"),
           actions: <Widget>[
@@ -28,12 +28,12 @@ class _MyChatAppState extends State<MyChatApp> {
 
         body: ListView(
           children: <Widget>[
+            ChatHead(
+              friendName: "A", lastMessage: "Click", messageTime: DateTime.now(),
+            ),
             ChatHead(),
-//            ChatHead(),
-//            ChatHead(),
-//            ChatHead(),
-//            ChatHead(),
-//            ChatHead()
+            ChatHead(),
+            ChatHead(),
           ],
         ),
 
@@ -65,9 +65,9 @@ class _MyChatAppState extends State<MyChatApp> {
           },
           child: Icon(Icons.add),
         ),
-      ),*/
+      ),
 
-      home: ChatView(),
+//      home: ChatView(),
     );
   }
 }
