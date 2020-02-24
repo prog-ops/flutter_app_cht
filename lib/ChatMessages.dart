@@ -41,7 +41,7 @@ class _ChatMessagesState extends State<ChatMessages> {
           ) : Container(),
           Expanded(
               child: Padding(
-                  padding: EdgeInsets.all(8.0),
+                  padding: EdgeInsets.all(12.0),
                   child: Text(widget.message)
               ),
           ),

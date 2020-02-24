@@ -34,8 +34,13 @@ class _ChatViewState extends State<ChatView> {
       ),
       body: ListView(
         children: <Widget>[
-          ChatMessages(isFriend: true, isNotPrevious: true, friendInitial: _friendInitial,),
-          ChatMessages(isFriend: false, isNotPrevious: true, friendInitial: _friendInitial,)
+          ChatMessages(
+            isFriend: true,
+            isNotPrevious: true,
+            friendInitial: _friendInitial,
+            message: "I really want to be a pilot",
+          ),
+//          ChatMessages(isFriend: false, isNotPrevious: true, friendInitial: _friendInitial,)
         ],
       ),
       bottomNavigationBar: BottomAppBar(
