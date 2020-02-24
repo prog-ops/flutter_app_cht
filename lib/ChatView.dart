@@ -50,6 +50,7 @@ class _ChatViewState extends State<ChatView> {
           Padding(
             padding: EdgeInsets.all(16),
             child: Row(
+              crossAxisAlignment: CrossAxisAlignment.center,
               children: <Widget>[
                 Expanded(
                     child: TextFormField(
@@ -61,7 +62,10 @@ class _ChatViewState extends State<ChatView> {
                     )
                 ),
                 IconButton(
-                    icon: Icon(Icons.send),
+                    icon: Icon(
+                      Icons.send,
+                      color: Colors.blue,
+                    ),
                     onPressed: () {
                       print("send message tapped");
                     }),
