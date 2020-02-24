@@ -47,14 +47,14 @@ class _ChatHeadState extends State<ChatHead> {
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
                 Text(
-                    "<Friend's name>",
+                  widget.friendName,
                   style: Theme.of(context).textTheme.title,
                 ),
                 Text(
-                    "Last message",
-                    style: Theme.of(context).textTheme.body2,
+                  widget.lastMessage,
+                  style: Theme.of(context).textTheme.body2,
                 ),
-                Text("Time"),
+                Text(widget.messageTime.toString()),
               ],
             ),
           ),
