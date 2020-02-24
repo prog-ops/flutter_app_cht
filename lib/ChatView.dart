@@ -20,7 +20,7 @@ class _ChatViewState extends State<ChatView> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Friend's name"),
+        title: Text(widget.friendName),
       ),
       body: ListView(
         children: <Widget>[

@@ -7,10 +7,13 @@ class ChatMessages extends StatefulWidget {
   final bool isFriend;
   final bool isNotPrevious;
 
+  final String message;
+
   ChatMessages({
     Key key,
     this.isFriend: false,
     this.isNotPrevious: false,
+    this.message
   }) : super(key:key);
 }
 
