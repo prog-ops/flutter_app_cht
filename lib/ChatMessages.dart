@@ -17,8 +17,8 @@ class ChatMessages extends StatefulWidget {
     Key key,
     this.isFriend: false,
     this.isNotPrevious: false,
-    this.message,
-    this.friendInitial,
+    this.message: "",
+    this.friendInitial: "",
   }) : super(key:key);
 }
 
