@@ -32,14 +32,20 @@ class _ChatViewState extends State<ChatView> {
       appBar: AppBar(
         title: Text(widget.friendName),
       ),
-      body: ListView(
+      body: Column(
         children: <Widget>[
-          ChatMessages(
-            isFriend: true,
-            isNotPrevious: true,
-            friendInitial: _friendInitial,
-            message: "I really want to be a pilot",
-          ),
+          Flexible(
+            child: ListView(
+              children: <Widget>[
+                ChatMessages(
+                  isFriend: true,
+                  isNotPrevious: true,
+                  friendInitial: _friendInitial,
+                  message: "I really want to be a pilot",
+                ),
+              ],
+            ),
+          )
 //          ChatMessages(isFriend: false, isNotPrevious: true, friendInitial: _friendInitial,)
         ],
       ),
