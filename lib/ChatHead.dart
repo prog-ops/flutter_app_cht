@@ -31,6 +31,10 @@ class _ChatHeadState extends State<ChatHead> {
   @override
   Widget build(BuildContext context) {
     return InkWell(
+      onTap: (){
+        print(widget.friendName+ " has been tapped");
+      },
+      highlightColor: Colors.blue,
       child: Container(
         padding: EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0),
         width: double.infinity,
