@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_app_dapur_grid/ChatHead.dart';
+import 'package:flutter_app_dapur_grid/ChatView.dart';
 
 class MyChatApp extends StatefulWidget {
   @override
@@ -12,7 +13,7 @@ class _MyChatAppState extends State<MyChatApp> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: Scaffold(
+      /*home: Scaffold(
         appBar: AppBar(
           title: Text("My chatapp"),
           actions: <Widget>[
@@ -64,7 +65,9 @@ class _MyChatAppState extends State<MyChatApp> {
           },
           child: Icon(Icons.add),
         ),
-      ),
+      ),*/
+
+      home: ChatView(),
     );
   }
 }
