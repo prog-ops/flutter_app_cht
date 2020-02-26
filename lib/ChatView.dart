@@ -57,11 +57,13 @@ class _ChatViewState extends State<ChatView> {
                       chatMessageWidgets.add(
                         ChatMessages(
                           isFriend: true,
-                          isNotPrevious: chatMessagesList.length == _index,
+                          isNotPrevious: chatMessagesList.length - 1 == _index,
                           message: _message['content'],
                           friendInitial: "J",
                         )
                       );
+                      _index++;
+
                     });
 
                     return ListView(children: chatMessageWidgets,);
