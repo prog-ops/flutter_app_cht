@@ -41,7 +41,33 @@ class _ChatViewState extends State<ChatView> {
         children: <Widget>[
           Flexible(
             child: FutureBuilder(
+              future: loadMessageDetails(),
+              builder: (BuildContext context, AsyncSnapshot snapshot){
 
+                if (snapshot.connectionState == ConnectionState.done) {
+
+                  if (snapshot.hasData) {
+
+                    List<ChatMessages> chatMessageWidgets = List();
+
+                    List<dynamic> chatMessagesList = snapshot.data['12345']['messages'];
+
+                    chatMessagesList.forEach((_message){
+                      print('_message: $_message');
+
+                    });
+                    return ListView(children: chatMessageWidgets,);
+
+                  } else {
+                    return Center(
+                      child: Text('No messages found'),
+                    );
+                  }
+
+                } else {
+                  return CircularProgressIndicator();
+                }
+              },
             )
           ),
 
