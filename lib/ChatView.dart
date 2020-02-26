@@ -55,7 +55,7 @@ class _ChatViewState extends State<ChatView> {
                       chatMessageWidgets.add(
                         ChatMessages(
                           isFriend: true,
-                          isNotPrevious: true,
+                          isNotPrevious: false,
                           message: _message['content'],
                           friendInitial: "J",
                         )
