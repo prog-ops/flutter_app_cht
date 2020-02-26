@@ -19,7 +19,7 @@
         "content": "string of url content",
         "timestamp": "message_timestamp"
       }
-
-    ]
+    ],
+    "display_name": "name to display"
   }
 }
