@@ -94,7 +94,11 @@ class _ChatViewState extends State<ChatView> {
   void loadMessageDetails() async {
     String messageDetailsString = await DefaultAssetBundle.of(context)
         .loadString('assets/messageDetails.json');
-    print("message detail: $messageDetailsString");
+//    print("message detail: $messageDetailsString");
+
+    Map<String, dynamic> mappedMessages = json.decode(messageDetailsString);
+    print('mappedMessages $mappedMessages');
+    print('12345 ${mappedMessages['12345']}');
 
   }
 }
