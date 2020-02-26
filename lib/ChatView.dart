@@ -105,6 +105,9 @@ class _ChatViewState extends State<ChatView> {
     List<Widget> tempList = List();
 
     loadMessageDetails().then((_value){
+
+      tempList.add(Text('No messages around'));
+
       if(_value != null) {
 
       } else {
