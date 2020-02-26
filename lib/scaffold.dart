@@ -29,10 +29,10 @@ class _MyChatAppState extends State<MyChatApp> {
         body: ListView(
           children: <Widget>[
             ChatHead(
-              friendName: "A", lastMessage: "Click", messageTime: DateTime.now(),
+              friendName: "Tha", lastMessage: "I do the snap", messageTime: DateTime.now(),
             ),
             ChatHead(
-              friendName: "B", lastMessage: "Click B", messageTime: DateTime.now(),
+              friendName: "Capn", lastMessage: "Please tell Tha", messageTime: DateTime.now(),
             ),
           ],
         ),
