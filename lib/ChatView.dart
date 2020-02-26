@@ -50,12 +50,14 @@ class _ChatViewState extends State<ChatView> {
                     List<ChatMessages> chatMessageWidgets = List();
                     List<dynamic> chatMessagesList = snapshot.data;
 
+                    int _index = 0;
+
                     chatMessagesList.forEach((_message){
                       print('_message: $_message');
                       chatMessageWidgets.add(
                         ChatMessages(
                           isFriend: true,
-                          isNotPrevious: false,
+                          isNotPrevious: chatMessagesList.length == _index,
                           message: _message['content'],
                           friendInitial: "J",
                         )
