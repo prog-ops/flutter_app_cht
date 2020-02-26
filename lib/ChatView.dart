@@ -50,7 +50,7 @@ class _ChatViewState extends State<ChatView> {
 
                     List<ChatMessages> chatMessageWidgets = List();
 
-                    List<dynamic> chatMessagesList = snapshot.data['12345']['messages'];
+                    List<dynamic> chatMessagesList = snapshot.data;
 
                     chatMessagesList.forEach((_message){
                       print('_message: $_message');
