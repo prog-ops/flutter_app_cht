@@ -34,12 +34,6 @@ class _MyChatAppState extends State<MyChatApp> {
             ChatHead(
               friendName: "B", lastMessage: "Click B", messageTime: DateTime.now(),
             ),
-            ChatHead(
-              friendName: "C", lastMessage: "C", messageTime: DateTime.now(),
-            ),
-            ChatHead(
-              friendName: "D", lastMessage: "D", messageTime: DateTime.now(),
-            ),
           ],
         ),
 

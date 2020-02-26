@@ -100,8 +100,10 @@ class _ChatViewState extends State<ChatView> {
 //    print('mappedMessages $mappedMessages');
 //    print('12345 ${mappedMessages['12345']}');
 
-    List<Map<String, dynamic>> messages = mappedMessages['12345']['messages'];
+    List<dynamic> messages = mappedMessages['12345']['messages'];
     print('list $messages');
-
+    messages.forEach((_value){
+      print('value is $_value');
+    });
   }
 }
