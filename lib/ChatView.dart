@@ -91,7 +91,7 @@ class _ChatViewState extends State<ChatView> {
     );
   }
 
-  void loadMessageDetails() async {
+  Future<List> loadMessageDetails() async {
     String messageDetailsString = await DefaultAssetBundle.of(context)
         .loadString('assets/messageDetails.json');
 //    print("message detail: $messageDetailsString");
@@ -102,8 +102,9 @@ class _ChatViewState extends State<ChatView> {
 
     List<dynamic> messages = mappedMessages['12345']['messages'];
     print('list $messages');
-    messages.forEach((_value){
+    /*messages.forEach((_value){
       print('value is $_value');
-    });
+    });*/
+    return messages;
   }
 }
