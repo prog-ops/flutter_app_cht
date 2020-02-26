@@ -47,15 +47,21 @@ class _ChatViewState extends State<ChatView> {
                 if (snapshot.connectionState == ConnectionState.done) {
 
                   if (snapshot.hasData) {
-
                     List<ChatMessages> chatMessageWidgets = List();
-
                     List<dynamic> chatMessagesList = snapshot.data;
 
                     chatMessagesList.forEach((_message){
                       print('_message: $_message');
-
+                      chatMessageWidgets.add(
+                        ChatMessages(
+                          isFriend: true,
+                          isNotPrevious: true,
+                          message: _message['content'],
+                          friendInitial: "J",
+                        )
+                      );
                     });
+
                     return ListView(children: chatMessageWidgets,);
 
                   } else {
