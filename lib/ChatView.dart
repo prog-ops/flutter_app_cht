@@ -40,9 +40,9 @@ class _ChatViewState extends State<ChatView> {
       body: Column(
         children: <Widget>[
           Flexible(
-            child: ListView(
-              children: getMessages()
-            ),
+            child: FutureBuilder(
+
+            )
           ),
 
           Padding(
