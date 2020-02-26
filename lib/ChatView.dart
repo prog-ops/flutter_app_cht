@@ -30,6 +30,8 @@ class _ChatViewState extends State<ChatView> {
 
   @override
   Widget build(BuildContext context) {
+    loadMessageDetails();
+
     return Scaffold(
       appBar: AppBar(
         title: Text(widget.friendName),
@@ -86,5 +88,12 @@ class _ChatViewState extends State<ChatView> {
         ],
       ),
     );
+  }
+
+  void loadMessageDetails() async {
+    String messageDetailsString = await DefaultAssetBundle.of(context)
+        .loadString('assets/messageDetails.json');
+    print("message detail: $messageDetailsString");
+
   }
 }

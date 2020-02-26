@@ -1,0 +1,14 @@
+{
+  "12345": {
+    "avatar": "avatar url",
+    "last_messages": [
+      {
+        "type": "string",
+        "content": "hey, what's up?",
+        "from": "friend",
+        "timestamp": 1234556547657
+      }
+    ],
+    "display_name": "name here"
+  }
+}
