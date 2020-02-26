@@ -97,8 +97,11 @@ class _ChatViewState extends State<ChatView> {
 //    print("message detail: $messageDetailsString");
 
     Map<String, dynamic> mappedMessages = json.decode(messageDetailsString);
-    print('mappedMessages $mappedMessages');
-    print('12345 ${mappedMessages['12345']}');
+//    print('mappedMessages $mappedMessages');
+//    print('12345 ${mappedMessages['12345']}');
+
+    List<Map<String, dynamic>> messages = mappedMessages['12345']['messages'];
+    print('list $messages');
 
   }
 }
