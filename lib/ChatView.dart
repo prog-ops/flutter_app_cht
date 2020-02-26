@@ -41,14 +41,7 @@ class _ChatViewState extends State<ChatView> {
         children: <Widget>[
           Flexible(
             child: ListView(
-              children: <Widget>[
-                ChatMessages(
-                  isFriend: true,
-                  isNotPrevious: true,
-                  friendInitial: _friendInitial,
-                  message: "I really want to be a pilot",
-                ),
-              ],
+              children: getMessages()
             ),
           ),
 
@@ -106,5 +99,18 @@ class _ChatViewState extends State<ChatView> {
       print('value is $_value');
     });*/
     return messages;
+  }
+
+  List<Widget> getMessages(){
+    List<Widget> tempList = List();
+
+    loadMessageDetails().then((_value){
+      if(_value != null) {
+
+      } else {
+
+      }
+    });
+    return tempList;
   }
 }
