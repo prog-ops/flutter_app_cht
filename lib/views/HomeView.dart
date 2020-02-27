@@ -9,7 +9,9 @@ class _ChatHistoryState extends State<ChatHistory> {
   @override
   Widget build(BuildContext context) {
     return Container(
-
+      child: Center(
+        child: Text('HOME'),
+      ),
     );
   }
 }

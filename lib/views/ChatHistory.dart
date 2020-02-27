@@ -10,7 +10,7 @@ class _ChatHistoryState extends State<ChatHistory> {
   Widget build(BuildContext context) {
     return Container(
       child: Center(
-
+        child: Text('CHAT history'),
       ),
     );
   }
