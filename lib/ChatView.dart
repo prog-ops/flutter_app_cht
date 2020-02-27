@@ -59,6 +59,10 @@ class _ChatViewState extends State<ChatView> {
 
                     tempMap.forEach((_key, _value){
                       print('_value: $_value');
+
+                      List<Map<String, dynamic>> _messageList = _value['messages'];
+                      print('messagelist $_messageList');
+
                       chatMessageWidgets.add(
                           ChatMessages(
                             isFriend: true,
