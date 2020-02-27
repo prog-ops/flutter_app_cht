@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_app_dapur_grid/ChatHead.dart';
 
 class ChatHistory extends StatefulWidget {
   @override
@@ -10,7 +11,16 @@ class _ChatHistoryState extends State<ChatHistory> {
   Widget build(BuildContext context) {
     return Container(
       child: Center(
-        child: Text('CHAT history'),
+        child: ListView(
+          children: <Widget>[
+            ChatHead(
+              friendName: "Tha", lastMessage: "I do the snap", messageTime: DateTime.now(),
+            ),
+            ChatHead(
+              friendName: "Capn", lastMessage: "Please tell Tha", messageTime: DateTime.now(),
+            ),
+          ],
+        ),
       ),
     );
   }

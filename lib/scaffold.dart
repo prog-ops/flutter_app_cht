@@ -31,17 +31,6 @@ class _MyChatAppState extends State<MyChatApp> {
 
         body: selectedScreen(_currentIndeks),
 
-        /*body: ListView(
-          children: <Widget>[
-            ChatHead(
-              friendName: "Tha", lastMessage: "I do the snap", messageTime: DateTime.now(),
-            ),
-            ChatHead(
-              friendName: "Capn", lastMessage: "Please tell Tha", messageTime: DateTime.now(),
-            ),
-          ],
-        ),*/
-
         bottomNavigationBar: BottomNavigationBar(
           currentIndex: _currentIndeks,
           items: <BottomNavigationBarItem>[
