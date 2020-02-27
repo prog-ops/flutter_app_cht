@@ -13,6 +13,8 @@ class ChatMessages extends StatefulWidget {
   // the actual message
   final String message;
 
+  final String avatarUrl;
+
   ChatMessages({
     Key key,
     this.isFriend: false,
