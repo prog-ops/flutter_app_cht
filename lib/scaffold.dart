@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_app_dapur_grid/ChatHead.dart';
 import 'package:flutter_app_dapur_grid/ChatView.dart';
+import 'package:flutter_app_dapur_grid/views/ChatHistory.dart';
+import 'package:flutter_app_dapur_grid/views/HomeView.dart';
+import 'package:flutter_app_dapur_grid/views/SettingsView.dart';
 
 class MyChatApp extends StatefulWidget {
   @override
@@ -69,5 +72,20 @@ class _MyChatAppState extends State<MyChatApp> {
 
 //      home: ChatView(),
     );
+  }
+
+  Widget selectedScreen(int _indeks){
+    switch(_indeks) {
+      case 0:
+        return HomeView();
+        break;
+      case 1:
+        return ChatHistory();
+        break;
+      case 2:
+        return SettingsView();
+        break;
+      default:
+    }
   }
 }

@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 
-class ChatHistory extends StatefulWidget {
+class HomeView extends StatefulWidget {
   @override
-  _ChatHistoryState createState() => _ChatHistoryState();
+  _HomeViewState createState() => _HomeViewState();
 }
 
-class _ChatHistoryState extends State<ChatHistory> {
+class _HomeViewState extends State<HomeView> {
   @override
   Widget build(BuildContext context) {
     return Container(
