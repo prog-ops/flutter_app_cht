@@ -60,17 +60,22 @@ class _ChatViewState extends State<ChatView> {
                     tempMap.forEach((_key, _value){
                       print('_value: $_value');
 
-                      List<Map<String, dynamic>> _messageList = _value['messages'];
+                      List<dynamic> _messageList = _value['messages'];
                       print('messagelist $_messageList');
 
-                      chatMessageWidgets.add(
-                          ChatMessages(
-                            isFriend: true,
-                            isNotPrevious: tempMap.length - 1 == _index,
-                            message: _value[widget.friendId]['messages'][0]['content'],
-                            friendInitial: "J",
-                          )
-                      );
+                      _messageList.forEach((_message){
+                        print('_message $_message');
+
+                        chatMessageWidgets.add(
+                            ChatMessages(
+                              isFriend: true,
+                              isNotPrevious: tempMap.length - 1 == _index,
+                              message: _message,
+                              friendInitial: "J",
+                            )
+                        );
+                        _index++;
+                      });
                     });
 
 
