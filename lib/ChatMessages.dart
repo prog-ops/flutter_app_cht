@@ -40,10 +40,8 @@ class _ChatMessagesState extends State<ChatMessages> {
             child: widget.isFriend && widget.isNotPrevious ?
             CircleAvatar(
               backgroundImage: Image.network(widget.avatarUrl).image,
-//              backgroundImage: Image.asset('assets/image/avatar.jpg').image,
-              radius: 28.0,
+              radius: 20.0,
               backgroundColor: Colors.white,
-              child: Text(widget.friendInitial),
             ) : Container(),
           ),
           Expanded(

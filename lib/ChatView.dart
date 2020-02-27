@@ -72,6 +72,7 @@ class _ChatViewState extends State<ChatView> {
                               isNotPrevious: tempMap.length - 1 == _index,
                               message: _message['content'],
                               friendInitial: "J",
+                              avatarUrl: _value['avatar'],
                             )
                         );
                         _index++;
