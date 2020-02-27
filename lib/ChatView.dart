@@ -70,7 +70,7 @@ class _ChatViewState extends State<ChatView> {
                             ChatMessages(
                               isFriend: true,
                               isNotPrevious: tempMap.length - 1 == _index,
-                              message: _message,
+                              message: _message['content'],
                               friendInitial: "J",
                             )
                         );
