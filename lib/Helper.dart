@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 /**
  * ! loads the json file contents and returns a map
  */
-Future<Map<String, dynamic>> loadMessageDetails(
+Future<Map<String, dynamic>> loadJsonFileAsMap(
     BuildContext context, String assetPath) async {
   // todo get the contents of the asset as string
   String messageDetailsString = await DefaultAssetBundle.of(context)
