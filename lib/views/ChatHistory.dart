@@ -27,12 +27,13 @@ class _ChatHistoryState extends State<ChatHistory> {
                   Map<String, dynamic> tempMap = snapshot.data;
                   tempMap.forEach((_key, _value){
                     print('VALUE ${_value["display_name"]}');
-                    DateTime messageTime = DateTime.fromMicrosecondsSinceEpoch(
+                    DateTime messageTime = DateTime.fromMillisecondsSinceEpoch(
                       _value["last_message"]["timestamp"]
                     );
                     templist.add(ChatHead(
                       friendName: _value["display_name"],
                       messageTime: messageTime,
+                      lastMessage: _value["last_message"]["content"],
                     ));
                   });
 

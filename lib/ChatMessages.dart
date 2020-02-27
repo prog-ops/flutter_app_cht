@@ -33,12 +33,15 @@ class _ChatMessagesState extends State<ChatMessages> {
       child: Row(
         crossAxisAlignment: CrossAxisAlignment.center,
         children: <Widget>[
-          widget.isFriend && widget.isNotPrevious ?
-          CircleAvatar(
-            radius: 32,//34
-            backgroundColor: Colors.white,
-            child: Text(widget.friendInitial),
-          ) : Container(),
+          SizedBox(
+            width: 32.0,
+            child: widget.isFriend && widget.isNotPrevious ?
+            CircleAvatar(
+              radius: 34.0,
+              backgroundColor: Colors.white,
+              child: Text(widget.friendInitial),
+            ) : Container(),
+          ),
           Expanded(
               child: Padding(
                   padding: EdgeInsets.all(12.0),
