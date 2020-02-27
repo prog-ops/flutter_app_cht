@@ -63,7 +63,7 @@ class _ChatViewState extends State<ChatView> {
                           ChatMessages(
                             isFriend: true,
                             isNotPrevious: tempMap.length - 1 == _index,
-                            message: _value['content'],
+                            message: _value[widget.friendId]['messages'][0]['content'],
                             friendInitial: "J",
                           )
                       );
