@@ -10,18 +10,31 @@ class ChatHistory extends StatefulWidget {
 class _ChatHistoryState extends State<ChatHistory> {
   @override
   Widget build(BuildContext context) {
+
+    //Map<String, dynamic> mapOfChats = loadJsonFileAsMap(context, 'assets/recentChats.json');
+
+
     return Container(
       child: Center(
-        child: ListView(
-          children: <Widget>[
-            ChatHead(
-              friendName: "Tha", lastMessage: "I do the snap", messageTime: DateTime.now(),
-            ),
-            ChatHead(
-              friendName: "Capn", lastMessage: "Please tell Tha", messageTime: DateTime.now(),
-            ),
-          ],
-        ),
+        child: FutureBuilder(
+            future: loadJsonFileAsMap(context, 'assets/recentChats.json'),
+            builder: (BuildContext context, AsyncSnapshot snapshot){
+              List<ChatHead> templist = List();
+
+              if (snapshot.connectionState == ConnectionState.done) {
+
+                if (snapshot.hasData) {
+                  return ListView(children: templist,);
+                } else {
+                  return Text('No chats found');
+                }
+
+              } else {
+                return CircularProgressIndicator();
+              }
+
+              },
+        )
       ),
     );
   }
