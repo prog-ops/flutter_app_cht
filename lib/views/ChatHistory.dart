@@ -24,6 +24,14 @@ class _ChatHistoryState extends State<ChatHistory> {
               if (snapshot.connectionState == ConnectionState.done) {
 
                 if (snapshot.hasData) {
+                  Map<String, dynamic> tempMap = snapshot.data;
+                  tempMap.forEach((_key, _value){
+                    print('VALUE $_value');
+                    templist.add(ChatHead(
+                      friendName: "tha",
+                    ));
+                  });
+
                   return ListView(children: templist,);
                 } else {
                   return Text('No chats found');
