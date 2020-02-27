@@ -26,18 +26,21 @@ class ChatView extends StatefulWidget {
 class _ChatViewState extends State<ChatView> {
   String _friendInitial;
   TextEditingController _controller = TextEditingController();
+  List<dynamic> _listOfMessages;
 
   @override
   void initState() {
+    _listOfMessages = List();
+
     setState(() {
       _friendInitial = widget.friendName.substring(0,1);
     });
     super.initState();
   }
 
+
   @override
   Widget build(BuildContext context) {
-
     return Scaffold(
       appBar: AppBar(
         title: Text(widget.friendName),
