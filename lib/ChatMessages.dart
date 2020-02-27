@@ -27,7 +27,6 @@ class _ChatMessagesState extends State<ChatMessages> {
   Widget build(BuildContext context) {
     return Container(
       padding: EdgeInsets.all(8.0),
-      height: 100,
       width: double.infinity,
       color: Colors.grey[300],
       child: Row(
@@ -37,6 +36,7 @@ class _ChatMessagesState extends State<ChatMessages> {
             width: 40.0,
             child: widget.isFriend && widget.isNotPrevious ?
             CircleAvatar(
+              backgroundImage: Image.asset('assets/image/avatar.jpg').image,
               radius: 28.0,
               backgroundColor: Colors.white,
               child: Text(widget.friendInitial),
