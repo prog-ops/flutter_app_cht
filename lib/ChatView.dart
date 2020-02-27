@@ -31,7 +31,6 @@ class _ChatViewState extends State<ChatView> {
 
   @override
   Widget build(BuildContext context) {
-    loadMessageDetails();
 
     return Scaffold(
       appBar: AppBar(

@@ -21,9 +21,15 @@ class ChatHead extends StatefulWidget {
   // date time when message was sent
   final DateTime messageTime;
 
-  ChatHead(
-      {Key key, this.friendName: "", this.lastMessage: "", this.messageTime})
-      : super(key: key);
+  final String avatarUrl;
+
+  ChatHead({
+    Key key,
+    this.friendName: "",
+    this.lastMessage: "",
+    this.messageTime,
+    this.avatarUrl
+  }) : super(key: key);
 }
 
 class _ChatHeadState extends State<ChatHead> {

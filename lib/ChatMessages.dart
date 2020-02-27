@@ -21,6 +21,7 @@ class ChatMessages extends StatefulWidget {
     this.isNotPrevious: false,
     this.message: "",
     this.friendInitial: "",
+    this.avatarUrl: ""
   }) : super(key:key);
 }
 
@@ -38,7 +39,8 @@ class _ChatMessagesState extends State<ChatMessages> {
             width: 40.0,
             child: widget.isFriend && widget.isNotPrevious ?
             CircleAvatar(
-              backgroundImage: Image.asset('assets/image/avatar.jpg').image,
+              backgroundImage: Image.network(widget.avatarUrl).image,
+//              backgroundImage: Image.asset('assets/image/avatar.jpg').image,
               radius: 28.0,
               backgroundColor: Colors.white,
               child: Text(widget.friendInitial),
