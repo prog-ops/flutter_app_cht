@@ -43,7 +43,7 @@ class _ChatHeadState extends State<ChatHead> {
             return ChatView(
               friendName: widget.friendName,
               lastMessage: "Snap",
-              friendId: ,
+              friendId: widget.friendId,
             );
           },
           fullscreenDialog: true

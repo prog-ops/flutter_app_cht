@@ -34,6 +34,7 @@ class _ChatHistoryState extends State<ChatHistory> {
                       friendName: _value["display_name"],
                       messageTime: messageTime,
                       lastMessage: _value["last_message"]["content"],
+                      friendId: _key,
                     ));
                   });
 
