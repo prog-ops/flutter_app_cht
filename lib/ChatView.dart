@@ -8,7 +8,9 @@ class ChatView extends StatefulWidget {
   ChatView({
     Key key,
     this.friendName: "",
-    this.lastMessage: ""
+    this.lastMessage: "",
+    this.avatarUrl,
+    this.friendId
   }) : super(key: key);
 
   @override
@@ -16,6 +18,8 @@ class ChatView extends StatefulWidget {
 
   final String friendName;
   final String lastMessage;
+  final String avatarUrl;
+  final String friendId;
 }
 
 
@@ -48,11 +52,25 @@ class _ChatViewState extends State<ChatView> {
                 if (snapshot.connectionState == ConnectionState.done) {
 
                   if (snapshot.hasData) {
-                    List<ChatMessages> chatMessageWidgets = List();
-                    List<dynamic> chatMessagesList = snapshot.data;
-
                     int _index = 0;
 
+                    Map<String, dynamic> tempMap = snapshot.data;
+                    List<ChatMessages> chatMessageWidgets = List();
+
+                    tempMap.forEach((_key, _value){
+                      print('_value: $_value');
+                      chatMessageWidgets.add(
+                          ChatMessages(
+                            isFriend: true,
+                            isNotPrevious: tempMap.length - 1 == _index,
+                            message: _value['content'],
+                            friendInitial: "J",
+                          )
+                      );
+                    });
+
+
+                    /*List<dynamic> chatMessagesList = snapshot.data;
                     chatMessagesList.forEach((_message){
                       print('_message: $_message');
                       chatMessageWidgets.add(
@@ -64,8 +82,7 @@ class _ChatViewState extends State<ChatView> {
                         )
                       );
                       _index++;
-
-                    });
+                    });*/
 
                     return ListView(children: chatMessageWidgets,);
 
