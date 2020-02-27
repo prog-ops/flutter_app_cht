@@ -21,14 +21,14 @@ class ChatHead extends StatefulWidget {
   // date time when message was sent
   final DateTime messageTime;
 
-  final String avatarUrl;
+  final String friendId;
 
   ChatHead({
     Key key,
     this.friendName: "",
     this.lastMessage: "",
     this.messageTime,
-    this.avatarUrl
+    this.friendId
   }) : super(key: key);
 }
 
@@ -43,6 +43,7 @@ class _ChatHeadState extends State<ChatHead> {
             return ChatView(
               friendName: widget.friendName,
               lastMessage: "Snap",
+              friendId: ,
             );
           },
           fullscreenDialog: true
