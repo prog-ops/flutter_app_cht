@@ -23,12 +23,15 @@ class ChatHead extends StatefulWidget {
 
   final String friendId;
 
+  final String avatar;
+
   ChatHead({
     Key key,
     this.friendName: "",
     this.lastMessage: "",
     this.messageTime,
-    this.friendId
+    this.friendId,
+    this.avatar
   }) : super(key: key);
 }
 
@@ -77,6 +80,7 @@ class _ChatHeadState extends State<ChatHead> {
             ),
             CircleAvatar(
               radius: 32.0,
+              backgroundImage: Image.network(widget.avatar).image,
               child: Text(
                 widget.friendName.substring(0, 1),
                 style: Theme.of(context)
