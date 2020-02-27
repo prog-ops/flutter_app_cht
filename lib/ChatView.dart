@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_app_dapur_grid/ChatMessages.dart';
 import 'dart:convert';
 
+import 'package:flutter_app_dapur_grid/Helper.dart';
+
 class ChatView extends StatefulWidget {
   ChatView({
     Key key,
@@ -40,7 +42,7 @@ class _ChatViewState extends State<ChatView> {
         children: <Widget>[
           Flexible(
             child: FutureBuilder(
-              future: loadMessageDetails(),
+              future: loadJsonFileAsMap(context, 'assets/messageDetails.json'),
               builder: (BuildContext context, AsyncSnapshot snapshot){
 
                 if (snapshot.connectionState == ConnectionState.done) {
