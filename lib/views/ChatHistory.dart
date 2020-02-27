@@ -26,9 +26,9 @@ class _ChatHistoryState extends State<ChatHistory> {
                 if (snapshot.hasData) {
                   Map<String, dynamic> tempMap = snapshot.data;
                   tempMap.forEach((_key, _value){
-                    print('VALUE $_value');
+                    print('VALUE ${_value["display_name"]}');
                     templist.add(ChatHead(
-                      friendName: "tha",
+                      friendName: _value["display_name"],
                     ));
                   });
 
