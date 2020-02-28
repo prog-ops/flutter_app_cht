@@ -38,9 +38,15 @@ class _ChatViewState extends State<ChatView> {
     super.initState();
   }
 
+  void loadMessages(BuildContext context) async{
+    Map<String, dynamic> tempObject = await loadJsonFileAsMap(context, 'assets/messageDetails.json');
+    _listOfMessages = tempObject['messages'];
+  }
 
   @override
   Widget build(BuildContext context) {
+    loadMessages(context);
+
     return Scaffold(
       appBar: AppBar(
         title: Text(widget.friendName),
