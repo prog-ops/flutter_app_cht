@@ -43,7 +43,10 @@ class _ChatViewState extends State<ChatView> {
   void loadMessages(BuildContext context) async{
     Map<String, dynamic> tempObject = await loadJsonFileAsMap(context, 'assets/messageDetails.json');
 
-    _listOfMessages = tempObject[widget.friendId]['messages'];
+    setState(() {
+      _listOfMessages = tempObject[widget.friendId]['messages'];
+    });
+
     print('_listOfMessages $_listOfMessages');
   }
 
@@ -59,70 +62,55 @@ class _ChatViewState extends State<ChatView> {
       body: Column(
         children: <Widget>[
           Flexible(
-            child: FutureBuilder(
-              future: loadJsonFileAsMap(context, 'assets/messageDetails.json'),
-              builder: (BuildContext context, AsyncSnapshot snapshot){
+            child: ListView.builder(itemBuilder: null)
+          ),
+          /*FutureBuilder(
+            future: loadJsonFileAsMap(context, 'assets/messageDetails.json'),
+            builder: (BuildContext context, AsyncSnapshot snapshot){
 
-                if (snapshot.connectionState == ConnectionState.done) {
+              if (snapshot.connectionState == ConnectionState.done) {
 
-                  if (snapshot.hasData) {
-                    int _index = 0;
+                if (snapshot.hasData) {
+                  int _index = 0;
 
-                    Map<String, dynamic> tempMap = snapshot.data;
-                    List<ChatMessages> chatMessageWidgets = List();
+                  Map<String, dynamic> tempMap = snapshot.data;
+                  List<ChatMessages> chatMessageWidgets = List();
 
-                    tempMap.forEach((_key, _value){
-                      print('_value: $_value');
+                  tempMap.forEach((_key, _value){
+                    print('_value: $_value');
 
-                      List<dynamic> _messageList = _value['messages'];
-                      print('messagelist $_messageList');
+                    List<dynamic> _messageList = _value['messages'];
+                    print('messagelist $_messageList');
 
-                      _messageList.forEach((_message){
-                        print('_message $_message');
+                    _messageList.forEach((_message){
+                      print('_message $_message');
 
-                        chatMessageWidgets.add(
-                            ChatMessages(
-                              isFriend: true,
-                              isNotPrevious: tempMap.length - 1 == _index,
-                              message: _message['content'],
-                              friendInitial: "J",
-                              avatarUrl: _value['avatar'],
-                            )
-                        );
-                        _index++;
-                      });
-                    });
-
-
-                    /*List<dynamic> chatMessagesList = snapshot.data;
-                    chatMessagesList.forEach((_message){
-                      print('_message: $_message');
                       chatMessageWidgets.add(
-                        ChatMessages(
-                          isFriend: true,
-                          isNotPrevious: chatMessagesList.length - 1 == _index,
-                          message: _message['content'],
-                          friendInitial: "J",
-                        )
+                          ChatMessages(
+                            isFriend: true,
+                            isNotPrevious: tempMap.length - 1 == _index,
+                            message: _message['content'],
+                            friendInitial: "J",
+                            avatarUrl: _value['avatar'],
+                          )
                       );
                       _index++;
-                    });*/
+                    });
+                  });
 
-                    return ListView(children: chatMessageWidgets,);
-
-                  } else {
-                    return Center(
-                      child: Text('No messages found'),
-                    );
-                  }
+                  return ListView(children: chatMessageWidgets,);
 
                 } else {
-                  return CircularProgressIndicator();
+                  return Center(
+                    child: Text('No messages found'),
+                  );
                 }
-              },
-            )
-          ),
 
+              } else {
+                return CircularProgressIndicator();
+              }
+            },
+          ),*/
           Padding(
             padding: EdgeInsets.all(16),
             child: Row(
