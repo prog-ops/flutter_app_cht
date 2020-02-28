@@ -37,7 +37,10 @@ class _ChatViewState extends State<ChatView> {
     setState(() {
       _friendInitial = widget.friendName.substring(0,1);
     });
+
     super.initState();
+
+    loadMessages(context);
   }
 
 
@@ -55,8 +58,6 @@ class _ChatViewState extends State<ChatView> {
 
   @override
   Widget build(BuildContext context) {
-    loadMessages(context);
-
     return Scaffold(
       appBar: AppBar(
         title: Text(widget.friendName),
