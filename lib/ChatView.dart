@@ -136,6 +136,18 @@ class _ChatViewState extends State<ChatView> {
                       controller: _controller,
                       onFieldSubmitted: (String _message) {
                         print("on field submitted >> " +_message);
+                        Map<String, dynamic> newMessage = {
+                          "type": "string",
+                          "content": _message,
+                          "from": "me",
+                        };
+
+                        List<dynamic> newList = _listOfMessages;
+                        newList.add(newMessage);
+
+                        setState(() {
+                          _listOfMessages = newList;
+                        });
                       },
                       decoration: InputDecoration(
                           hintText: "Type your message",
