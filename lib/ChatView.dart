@@ -28,6 +28,7 @@ class _ChatViewState extends State<ChatView> {
   TextEditingController _controller = TextEditingController();
   List<dynamic> _listOfMessages;
 
+
   @override
   void initState() {
     _listOfMessages = List();
@@ -38,12 +39,14 @@ class _ChatViewState extends State<ChatView> {
     super.initState();
   }
 
+
   void loadMessages(BuildContext context) async{
     Map<String, dynamic> tempObject = await loadJsonFileAsMap(context, 'assets/messageDetails.json');
-    print('tempobject $tempObject');
 
-    _listOfMessages = tempObject[widget.friendId];
+    _listOfMessages = tempObject[widget.friendId]['messages'];
+    print('_listOfMessages $_listOfMessages');
   }
+
 
   @override
   Widget build(BuildContext context) {
