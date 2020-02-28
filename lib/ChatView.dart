@@ -72,8 +72,8 @@ class _ChatViewState extends State<ChatView> {
                     isFriend: true,
                     isNotPrevious: _listOfMessages.length - 1 == indeks,
                     message: _tempMesssage['content'],
-                    friendInitial: "T",
-                    avatarUrl: _tempMesssage['avatar'],
+                    friendInitial: _tempMesssage['display_name'].toString().substring(0,1),
+//                    avatarUrl: _tempMesssage['avatar'],
                   );
                 },
             )),
