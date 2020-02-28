@@ -40,7 +40,9 @@ class _ChatViewState extends State<ChatView> {
 
   void loadMessages(BuildContext context) async{
     Map<String, dynamic> tempObject = await loadJsonFileAsMap(context, 'assets/messageDetails.json');
-    _listOfMessages = tempObject['messages'];
+    print('tempobject $tempObject');
+
+    _listOfMessages = tempObject[widget.friendId];
   }
 
   @override
