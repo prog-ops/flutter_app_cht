@@ -80,55 +80,8 @@ class _ChatViewState extends State<ChatView> {
                   );
                 },
             )),
-          /*FutureBuilder(
-            future: loadJsonFileAsMap(context, 'assets/messageDetails.json'),
-            builder: (BuildContext context, AsyncSnapshot snapshot){
-
-              if (snapshot.connectionState == ConnectionState.done) {
-
-                if (snapshot.hasData) {
-                  int _index = 0;
-
-                  Map<String, dynamic> tempMap = snapshot.data;
-                  List<ChatMessages> chatMessageWidgets = List();
-
-                  tempMap.forEach((_key, _value){
-                    print('_value: $_value');
-
-                    List<dynamic> _messageList = _value['messages'];
-                    print('messagelist $_messageList');
-
-                    _messageList.forEach((_message){
-                      print('_message $_message');
-
-                      chatMessageWidgets.add(
-                          ChatMessages(
-                            isFriend: true,
-                            isNotPrevious: tempMap.length - 1 == _index,
-                            message: _message['content'],
-                            friendInitial: "J",
-                            avatarUrl: _value['avatar'],
-                          )
-                      );
-                      _index++;
-                    });
-                  });
-
-                  return ListView(children: chatMessageWidgets,);
-
-                } else {
-                  return Center(
-                    child: Text('No messages found'),
-                  );
-                }
-
-              } else {
-                return CircularProgressIndicator();
-              }
-            },
-          ),*/
           Padding(
-            padding: EdgeInsets.all(16),
+            padding: EdgeInsets.all(16.0),
             child: Row(
               crossAxisAlignment: CrossAxisAlignment.center,
               children: <Widget>[
@@ -149,6 +102,8 @@ class _ChatViewState extends State<ChatView> {
                         setState(() {
                           _listOfMessages = newList;
                         });
+
+                        _controller.clear();
                       },
                       decoration: InputDecoration(
                           hintText: "Type your message",
