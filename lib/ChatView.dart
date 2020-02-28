@@ -69,11 +69,11 @@ class _ChatViewState extends State<ChatView> {
                   print('_tempMesssage $_tempMesssage');
 
                   return ChatMessages(
-                    /*isFriend: true,
+                    isFriend: true,
                     isNotPrevious: _listOfMessages.length - 1 == indeks,
-                    message: _listOfMessages[indeks][],
+                    message: _tempMesssage['content'],
                     friendInitial: "T",
-                    avatarUrl: _value['avatar'],*/
+                    avatarUrl: _tempMesssage['avatar'],
                   );
                 },
             )),
