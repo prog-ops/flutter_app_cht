@@ -62,8 +62,21 @@ class _ChatViewState extends State<ChatView> {
       body: Column(
         children: <Widget>[
           Flexible(
-            child: ListView.builder(itemBuilder: null)
-          ),
+            child: ListView.builder(
+                itemCount: _listOfMessages.length,
+                itemBuilder: (BuildContext context, int indeks){
+                  Map<String, dynamic> _tempMesssage = _listOfMessages[indeks];
+                  print('_tempMesssage $_tempMesssage');
+
+                  return ChatMessages(
+                    /*isFriend: true,
+                    isNotPrevious: _listOfMessages.length - 1 == indeks,
+                    message: _listOfMessages[indeks][],
+                    friendInitial: "T",
+                    avatarUrl: _value['avatar'],*/
+                  );
+                },
+            )),
           /*FutureBuilder(
             future: loadJsonFileAsMap(context, 'assets/messageDetails.json'),
             builder: (BuildContext context, AsyncSnapshot snapshot){
