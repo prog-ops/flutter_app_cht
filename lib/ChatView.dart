@@ -27,6 +27,7 @@ class _ChatViewState extends State<ChatView> {
   String _friendInitial;
   TextEditingController _controller = TextEditingController();
   List<dynamic> _listOfMessages;
+  String avatarUrl;
 
 
   @override
@@ -45,6 +46,7 @@ class _ChatViewState extends State<ChatView> {
 
     setState(() {
       _listOfMessages = tempObject[widget.friendId]['messages'];
+      avatarUrl = tempObject[widget.friendId]['ab'];
     });
 
     print('_listOfMessages $_listOfMessages');
@@ -73,7 +75,7 @@ class _ChatViewState extends State<ChatView> {
                     isNotPrevious: _listOfMessages.length - 1 == indeks,
                     message: _tempMesssage['content'],
                     friendInitial: _tempMesssage['display_name'].toString().substring(0,1),
-//                    avatarUrl: _tempMesssage['avatar'],
+                    avatarUrl: avatarUrl,
                   );
                 },
             )),
