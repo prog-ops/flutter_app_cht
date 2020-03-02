@@ -90,7 +90,8 @@ class _ChatViewState extends State<ChatView> {
                     avatarUrl: avatarUrl,
                   );
                 },
-            )),
+            )
+          ),
           Padding(
             padding: EdgeInsets.all(16.0),
             child: Row(

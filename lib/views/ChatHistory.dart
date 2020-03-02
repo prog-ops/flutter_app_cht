@@ -23,9 +23,7 @@ class _ChatHistoryState extends State<ChatHistory> {
                   Map<String, dynamic> tempMap = snapshot.data;
                   tempMap.forEach((_key, _value){
                     print('VALUE ${_value["display_name"]}');
-                    DateTime messageTime = DateTime.fromMillisecondsSinceEpoch(
-                      _value["last_message"]["timestamp"]
-                    );
+                    DateTime messageTime = DateTime.fromMillisecondsSinceEpoch(_value["last_message"]["timestamp"]);
                     templist.add(ChatHead(
                       friendName: _value["display_name"],
                       messageTime: messageTime,
@@ -35,7 +33,7 @@ class _ChatHistoryState extends State<ChatHistory> {
                     ));
                   });
 
-                  return ListView(children: templist,);
+                  return ListView(children: templist);
                 } else {
                   return Text('No chats found');
                 }

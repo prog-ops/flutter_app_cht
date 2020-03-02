@@ -77,6 +77,8 @@ class _MyChatAppState extends State<MyChatApp> {
         return SettingsView();
         break;
       default:
+        // return HomeView();
+        return ChatHistory();
     }
   }
 }

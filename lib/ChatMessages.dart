@@ -15,14 +15,14 @@ class ChatMessages extends StatefulWidget {
 
   final String avatarUrl;
 
-  ChatMessages({
-    Key key,
-    this.isFriend: false,
-    this.isNotPrevious: false,
-    this.message: "",
-    this.friendInitial: "",
-    this.avatarUrl: ""
-  }) : super(key:key);
+  ChatMessages(
+      {Key key,
+      this.isFriend: false,
+      this.isNotPrevious: false,
+      this.message: "",
+      this.friendInitial: "",
+      this.avatarUrl: ""})
+      : super(key: key);
 }
 
 class _ChatMessagesState extends State<ChatMessages> {
@@ -37,26 +37,26 @@ class _ChatMessagesState extends State<ChatMessages> {
         children: <Widget>[
           SizedBox(
             width: 40.0,
-            child: widget.isFriend && widget.isNotPrevious ?
-            CircleAvatar(
-              backgroundImage: Image.network(widget.avatarUrl).image,
-              radius: 20.0,
-              backgroundColor: Colors.white,
-            ) : Container(),
+            child: widget.isFriend && widget.isNotPrevious
+                ? CircleAvatar(
+                    backgroundImage: Image.network(widget.avatarUrl).image,
+                    radius: 20.0,
+                    backgroundColor: Colors.white,
+                  )
+                : Container(),
           ),
           Expanded(
-              child: Padding(
-                  padding: EdgeInsets.symmetric(horizontal: 8.0),
-                  child: Text(widget.message)
-              ),
+            child: Padding(
+                padding: EdgeInsets.symmetric(horizontal: 8.0),
+                child: Text(widget.message)),
           ),
-
-          !widget.isFriend && widget.isNotPrevious ?
-          CircleAvatar(
-            radius: 32,//34
-            backgroundColor: Colors.white,
-            child: Text("Me"),
-          ) : Container(),
+          !widget.isFriend && widget.isNotPrevious
+              ? CircleAvatar(
+                  radius: 32, //34
+                  backgroundColor: Colors.white,
+                  child: Text("Me"),
+                )
+              : Container(),
         ],
       ),
     );
