@@ -126,7 +126,7 @@ class _ChatViewState extends State<ChatView> {
     // todo create a new message object containing the text from the field
     Map<String, dynamic> newMessage = {
       "type": "string",
-      "content": _controller.text,
+      "content": _controller.value,
       "from": "me",
     };
     
