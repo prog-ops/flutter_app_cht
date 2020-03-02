@@ -10,10 +10,6 @@ class ChatHistory extends StatefulWidget {
 class _ChatHistoryState extends State<ChatHistory> {
   @override
   Widget build(BuildContext context) {
-
-    //Map<String, dynamic> mapOfChats = loadJsonFileAsMap(context, 'assets/recentChats.json');
-
-
     return Container(
       child: Center(
         child: FutureBuilder(
@@ -47,8 +43,7 @@ class _ChatHistoryState extends State<ChatHistory> {
               } else {
                 return CircularProgressIndicator();
               }
-
-              },
+            },
         )
       ),
     );

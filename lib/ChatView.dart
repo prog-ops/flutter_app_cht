@@ -89,21 +89,7 @@ class _ChatViewState extends State<ChatView> {
                     child: TextFormField(
                       controller: _controller,
                       onFieldSubmitted: (String _message) {
-                        print("on field submitted >> " +_message);
-                        Map<String, dynamic> newMessage = {
-                          "type": "string",
-                          "content": _message,
-                          "from": "me",
-                        };
-
-                        List<dynamic> newList = _listOfMessages;
-                        newList.add(newMessage);
-
-                        setState(() {
-                          _listOfMessages = newList;
-                        });
-
-                        _controller.clear();
+                        submitText();
                       },
                       decoration: InputDecoration(
                           hintText: "Type your message",
@@ -121,7 +107,7 @@ class _ChatViewState extends State<ChatView> {
                           color: Colors.blue,
                         ),
                         onPressed: () {
-                          print("send message tapped >> " + _controller.text);
+                          submitText();
                         }),
                   ),
                 )
@@ -132,6 +118,29 @@ class _ChatViewState extends State<ChatView> {
       ),
     );
   }
+
+  /// submits the text in the text field and then clear it
+  void submitText(){
+    print("on field submitted >> " +_controller.text);
+
+    // todo create a new message object containing the text from the field
+    Map<String, dynamic> newMessage = {
+      "type": "string",
+      "content": _controller.text,
+      "from": "me",
+    };
+    
+    try{
+      // todo add the new message object to the list
+    _listOfMessages.add(newMessage);
+    
+    // todo clear the text
+    _controller.clear();
+    } catch (e){
+      print('CHAT VIEW > ERR > ${e.toString()}');
+    }
+  }
+
 
   Future<List> loadMessageDetails() async {
     String messageDetailsString = await DefaultAssetBundle.of(context)
