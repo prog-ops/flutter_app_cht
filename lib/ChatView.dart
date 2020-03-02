@@ -25,15 +25,19 @@ class ChatView extends StatefulWidget {
 
 class _ChatViewState extends State<ChatView> {
   String _friendInitial;
-  TextEditingController _controller = TextEditingController();
-  List<dynamic> _listOfMessages;
-  String avatarUrl;
 
+  TextEditingController _controller = TextEditingController();
+
+  List<dynamic> _listOfMessages;
+
+  String avatarUrl = "";
+
+  FocusNode focusChatMessage;
 
   @override
   void initState() {
     _listOfMessages = List();
-
+    focusChatMessage = FocusNode();
     setState(() {
       _friendInitial = widget.friendName.substring(0,1);
     });
@@ -43,13 +47,18 @@ class _ChatViewState extends State<ChatView> {
     loadMessages(context);
   }
 
+  @override
+  void dispose() {
+    // TODO: implement dispose
+    super.dispose();
+  }
 
   void loadMessages(BuildContext context) async{
     Map<String, dynamic> tempObject = await loadJsonFileAsMap(context, 'assets/messageDetails.json');
 
     setState(() {
       _listOfMessages = tempObject[widget.friendId]['messages'];
-      avatarUrl = tempObject[widget.friendId]['ab'];
+      avatarUrl = tempObject[widget.friendId]['avatar'];
     });
 
     print('_listOfMessages $_listOfMessages');
@@ -101,11 +110,12 @@ class _ChatViewState extends State<ChatView> {
                 Expanded(
                   child: TextFormField(
                     controller: _controller,
+                    autofocus: true,
                     onFieldSubmitted: (String _message) {
                       submitText();
                     },
                     decoration: InputDecoration.collapsed(
-                        hintText: "Type your message",
+                        hintText: "Type here",
                         // labelText: "Your message",
                         // helperText: "Here's where the message goes"
                     ),
@@ -123,21 +133,23 @@ class _ChatViewState extends State<ChatView> {
   void submitText(){
     print("on field submitted >> " +_controller.text);
 
-    // todo create a new message object containing the text from the field
-    Map<String, dynamic> newMessage = {
-      "type": "string",
-      "content": _controller.value.text,
-      "from": "me",
-    };
-    
-    try{
-      // todo add the new message object to the list
-    _listOfMessages.add(newMessage);
-    
-    // todo clear the text
-    _controller.clear();
-    } catch (e){
-      print('CHAT VIEW > ERR > ${e.toString()}');
+    if(_controller.text.length > 0) {
+      // todo create a new message object containing the text from the field
+      Map<String, dynamic> newMessage = {
+        "type": "string",
+        "content": _controller.value.text,
+        "from": "me",
+      };
+      
+      try{
+        // todo add the new message object to the list
+      _listOfMessages.add(newMessage);
+      
+      // todo clear the text
+      _controller.clear();
+      } catch (e){
+        print('CHAT VIEW > ERR > ${e.toString()}');
+      }
     }
   }
 
