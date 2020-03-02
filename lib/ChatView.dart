@@ -85,32 +85,32 @@ class _ChatViewState extends State<ChatView> {
             child: Row(
               crossAxisAlignment: CrossAxisAlignment.center,
               children: <Widget>[
-                Expanded(
-                    child: TextFormField(
-                      controller: _controller,
-                      onFieldSubmitted: (String _message) {
-                        submitText();
-                      },
-                      decoration: InputDecoration(
-                          hintText: "Type your message",
-                          labelText: "Your message",
-                          helperText: "Here's where the message goes"
-                      ),
-                    )
-                ),
                 Padding(
                   padding: EdgeInsets.all(8.0),
                   child: Center(
                     child: IconButton(
                         icon: Icon(
-                          Icons.send,
+                          Icons.add_a_photo,
                           color: Colors.blue,
                         ),
                         onPressed: () {
-                          submitText();
+                          // submitText();
                         }),
                   ),
-                )
+                ),
+                Expanded(
+                  child: TextFormField(
+                    controller: _controller,
+                    onFieldSubmitted: (String _message) {
+                      submitText();
+                    },
+                    decoration: InputDecoration.collapsed(
+                        hintText: "Type your message",
+                        // labelText: "Your message",
+                        // helperText: "Here's where the message goes"
+                    ),
+                  )
+                ),
               ],
             )
           )
