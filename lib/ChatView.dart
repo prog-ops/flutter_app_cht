@@ -105,14 +105,14 @@ class _ChatViewState extends State<ChatView> {
                           color: Colors.blue,
                         ),
                         onPressed: () {
-                          // submitText();
+                          FocusScope.of(context).requestFocus(focusChatMessage);
                         }),
                   ),
                 ),
                 Expanded(
                   child: TextFormField(
                     controller: _controller,
-                    autofocus: true,
+                    focusNode: focusChatMessage,
                     onFieldSubmitted: (String _message) {
                       submitText();
                     },
