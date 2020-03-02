@@ -49,6 +49,8 @@ class _ChatViewState extends State<ChatView> {
 
   @override
   void dispose() {
+    focusChatMessage.dispose();
+    _controller.dispose();
     // TODO: implement dispose
     super.dispose();
   }
