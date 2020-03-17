@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_app_dapur_grid/ChatView.dart';
+import 'package:flutter_app_cht/ChatView.dart';
 
 class ChatHead extends StatefulWidget {
   @override

@@ -1,4 +1,4 @@
-package rumah.dapur.flutter_app_dapur_grid;
+package flutter_app_cht.cht;
 
 import androidx.annotation.NonNull;
 import io.flutter.embedding.android.FlutterActivity;

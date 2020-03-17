@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_app_dapur_grid/ChatHead.dart';
-import 'package:flutter_app_dapur_grid/ChatView.dart';
-import 'package:flutter_app_dapur_grid/views/ChatHistory.dart';
-import 'package:flutter_app_dapur_grid/views/HomeView.dart';
-import 'package:flutter_app_dapur_grid/views/SettingsView.dart';
+import 'package:flutter_app_cht/ChatHead.dart';
+import 'package:flutter_app_cht/ChatView.dart';
+import 'package:flutter_app_cht/views/ChatHistory.dart';
+import 'package:flutter_app_cht/views/HomeView.dart';
+import 'package:flutter_app_cht/views/SettingsView.dart';
 
 class MyChatApp extends StatefulWidget {
   @override

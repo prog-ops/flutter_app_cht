@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_app_dapur_grid/ChatMessages.dart';
+import 'package:flutter_app_cht/ChatMessages.dart';
 import 'dart:convert';
 
-import 'package:flutter_app_dapur_grid/Helper.dart';
+import 'package:flutter_app_cht/Helper.dart';
 
 class ChatView extends StatefulWidget {
   ChatView({

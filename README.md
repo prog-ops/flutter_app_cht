@@ -1,6 +1,6 @@
-# flutter_app_dapur_grid
+# flutter_app_cht
 
-A new Flutter application.
+Sebuah aplikasi chat untuk kita
 
 ## Getting Started
 

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_app_dapur_grid/ChatHead.dart';
-import 'package:flutter_app_dapur_grid/Helper.dart';
+import 'package:flutter_app_cht/ChatHead.dart';
+import 'package:flutter_app_cht/Helper.dart';
 
 class ChatHistory extends StatefulWidget {
   @override
