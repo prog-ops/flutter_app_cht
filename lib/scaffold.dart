@@ -4,6 +4,7 @@ import 'package:flutter_app_cht/ChatView.dart';
 import 'package:flutter_app_cht/views/ChatHistory.dart';
 import 'package:flutter_app_cht/views/HomeView.dart';
 import 'package:flutter_app_cht/views/SettingsView.dart';
+import 'package:flutter_app_cht/views/SigninView.dart';
 
 class MyChatApp extends StatefulWidget {
   @override
@@ -13,9 +14,13 @@ class MyChatApp extends StatefulWidget {
 class _MyChatAppState extends State<MyChatApp> {
   int _currentIndeks = 0;
 
+  bool isSignedIn = false;
+
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return !isSignedIn
+      ? SigninView()
+      : MaterialApp(
       home: Scaffold(
         appBar: AppBar(
           title: Text("My chatapp"),
