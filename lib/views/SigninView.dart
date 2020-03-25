@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class SigninView extends StatefulWidget {
@@ -8,8 +9,40 @@ class SigninView extends StatefulWidget {
 class _SigninViewState extends State<SigninView> {
   @override
   Widget build(BuildContext context) {
-    return Container(
-
+    return Material(
+      child: SafeArea(child: Container(
+        padding: EdgeInsets.all(8.0),
+        child: Center(
+          child: Card(
+            color: Colors.blue[100],
+            margin: EdgeInsets.all(16.0),
+            child: Padding(
+              padding: EdgeInsets.symmetric(horizontal: 8.0, vertical: 12.0),
+              child: Column(
+                mainAxisSize: MainAxisSize.min,
+                children: <Widget>[
+                  Text(
+                    'Sign in to Chatta',
+                    style: Theme.of(context).textTheme.title,
+                  ),
+                  SizedBox(height: 40.0,),
+                  RaisedButton.icon(
+                      onPressed: (){},
+                      icon: Icon(Icons.person),
+                      label: Text('Sign In with Google')
+                  ),
+                  SizedBox(height: 40.0,),
+                  Text(
+                    'By signing in you agree to Terms',
+                    style: Theme.of(context).textTheme.body2,
+                    textAlign: TextAlign.center,
+                  )
+                ],
+              ),
+            ),
+          ),
+        ),
+      )),
     );
   }
 }
