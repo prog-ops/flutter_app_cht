@@ -4,21 +4,21 @@
     "messages": [
       {
         "type": "string",
-        "content": "hey, what's up?",
+        "content": "halo, pa kbr?",
         "from": "friend",
-        "display_name": "Thanos"
+        "display_name": "Tuti"
       },
       {
         "type": "string",
-        "content": "did you see this image?",
+        "content": "ini foto beritanya ya?",
         "from": "friend",
-        "display_name": "Thanos"
+        "display_name": "Tina"
       },
       {
         "type": "image/url",
         "content": "https://example.com/pic/123456789",
         "from": "friend",
-        "display_name": "Thanos"
+        "display_name": "Tono"
       },
       {
         "type": "string",
