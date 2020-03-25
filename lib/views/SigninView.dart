@@ -34,7 +34,8 @@ class _SigninViewState extends State<SigninView> {
                       GoogleSignInAccount googlUser = await GoogleSignIn()
                       .signIn()
                       .timeout(Duration(seconds: 180));
-                      final GoogleSignInAuthentication googlAuth = await googlUser.authentication;
+                      final GoogleSignInAuthentication googlAuth =
+                      await googlUser.authentication;
 
                     },
                   ),

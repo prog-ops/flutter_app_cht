@@ -1,9 +1,9 @@
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_app_cht/views/ChatHistory.dart';
 import 'package:flutter_app_cht/views/HomeView.dart';
 import 'package:flutter_app_cht/views/SettingsView.dart';
 import 'package:flutter_app_cht/views/SigninView.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 
 class MyChatApp extends StatefulWidget {
   @override
@@ -27,7 +27,6 @@ class _MyChatAppState extends State<MyChatApp> {
         /// USER HAS SIGNED IN
         setState(() {
           isSignedIn = true;
-
         });
 
       } else {
@@ -35,7 +34,6 @@ class _MyChatAppState extends State<MyChatApp> {
         setState(() {
           /// THE USER IS NULL
           isSignedIn = false;
-
         });
 
       }
