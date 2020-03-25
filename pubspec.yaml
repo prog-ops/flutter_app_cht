@@ -27,7 +27,7 @@ dependencies:
   google_sign_in: any
   shared_preferences: any
   flutter_twitter_login: any
-  firebase_admob: any
+  # firebase_admob: any
   # camera: any error need minsdk 21 like camera
 
   # The following adds the Cupertino Icons font to your application.
