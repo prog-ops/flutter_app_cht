@@ -1,5 +1,6 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:google_sign_in/google_sign_in.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 
 class SigninView extends StatefulWidget {
   @override
@@ -27,9 +28,15 @@ class _SigninViewState extends State<SigninView> {
                   ),
                   SizedBox(height: 40.0,),
                   RaisedButton.icon(
-                      onPressed: (){},
-                      icon: Icon(Icons.person),
-                      label: Text('Sign In with Google')
+                    icon: Icon(Icons.person),
+                    label: Text('Sign In with Google'),
+                    onPressed: () async {
+                      GoogleSignInAccount googlUser = await GoogleSignIn()
+                      .signIn()
+                      .timeout(Duration(seconds: 180));
+                      final GoogleSignInAuthentication googlAuth = await googlUser.authentication;
+
+                    },
                   ),
                   SizedBox(height: 40.0,),
                   Text(

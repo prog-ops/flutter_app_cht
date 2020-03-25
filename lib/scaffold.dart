@@ -1,3 +1,4 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_app_cht/views/ChatHistory.dart';
 import 'package:flutter_app_cht/views/HomeView.dart';
@@ -14,10 +15,32 @@ class _MyChatAppState extends State<MyChatApp> {
 
   bool isSignedIn = false;
 
+  FirebaseAuth _auth;
+
   @override
   void initState() {
-    // implement initState
-    super.initState();
+    /// LISTEN TO AUTH CHANGES
+    _auth.onAuthStateChanged.listen((_user) {
+      print('AUTH STATE CHANGED > $_user');
+
+      if (_user != null) {
+        /// USER HAS SIGNED IN
+        setState(() {
+          isSignedIn = true;
+
+        });
+
+      } else {
+        /// USER HAS SIGNED OUT
+        setState(() {
+          /// THE USER IS NULL
+          isSignedIn = false;
+
+        });
+
+      }
+    });
+
   }
 
   @override
