@@ -15,7 +15,7 @@ class _MyChatAppState extends State<MyChatApp> {
 
   bool isSignedIn = false;
 
-  FirebaseAuth _auth;
+  FirebaseAuth _auth = FirebaseAuth.instance;
 
   @override
   void initState() {

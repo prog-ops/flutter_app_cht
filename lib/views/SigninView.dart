@@ -37,6 +37,9 @@ class _SigninViewState extends State<SigninView> {
                       final GoogleSignInAuthentication googlAuth =
                       await googlUser.authentication;
 
+                      /*await FirebaseAuth.instance.signInWithGoogle(
+                        access
+                      );*/
                     },
                   ),
                   SizedBox(height: 40.0,),
