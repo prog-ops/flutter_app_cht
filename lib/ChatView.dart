@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_app_cht/ChatMessages.dart';
@@ -53,7 +55,7 @@ class _ChatViewState extends State<ChatView> {
   void dispose() {
     focusChatMessage.dispose();
     _controller.dispose();
-    // TODO: implement dispose
+    // implement dispose
     super.dispose();
   }
 
@@ -91,7 +93,8 @@ class _ChatViewState extends State<ChatView> {
                       return ListView.builder(
                         itemCount: snapshot.data.documents.length,
                         itemBuilder: (BuildContext context, int indeks) {
-                          DocumentSnapshot _document = snapshot.data[indeks];
+                          DocumentSnapshot _document = snapshot.data.documents[indeks];
+                          print('_document > ${_document['fromA']}');
 
                           return ChatMessages(
                             isFriend: _document[FROMA],
@@ -122,29 +125,29 @@ class _ChatViewState extends State<ChatView> {
             padding: EdgeInsets.all(16.0),
             child: Row(
               crossAxisAlignment: CrossAxisAlignment.center,
-              children: <Widget>[
-                Padding(padding: EdgeInsets.all(8.0),
-                  child: Center(child: IconButton(
+              children: <Widget>[Padding(padding: EdgeInsets.all(8.0),
+                child: Center(
+                  child: IconButton(
                       icon: Icon(Icons.add_a_photo, color: Colors.blue,),
                       onPressed: () {
                         FocusScope.of(context).requestFocus(focusChatMessage);
                       }),
+                ),
+              ),
+              Expanded(
+                child: TextFormField(
+                  controller: _controller,
+                  focusNode: focusChatMessage,
+                  onFieldSubmitted: (String _message) {
+                    submitText();
+                  },
+                  decoration: InputDecoration.collapsed(
+                    hintText: "Type here",
+                    // labelText: "Your message",
+                    // helperText: "Here's where the message goes"
                   ),
-                ),
-                Expanded(
-                    child: TextFormField(
-                      controller: _controller,
-                      focusNode: focusChatMessage,
-                      onFieldSubmitted: (String _message) {
-                        submitText();
-                      },
-                      decoration: InputDecoration.collapsed(
-                        hintText: "Type here",
-                        // labelText: "Your message",
-                        // helperText: "Here's where the message goes"
-                      ),
-                    )
-                ),
+                )
+              ),
               ],
             )
         )
@@ -152,26 +155,30 @@ class _ChatViewState extends State<ChatView> {
     );
   }
 
-  /// submits the text in the text field and then clear it
+  // submits the text in the text field and then clear it
   void submitText(){
     print("on field submitted >> " +_controller.text);
 
-    if(_controller.text.length > 0) {
-      // todo create a new message object containing the text from the field
+    if (_controller.text.length > 0) {
+      // create a new message object containing the text from the field
       Map<String, dynamic> newMessage = {
-        "type": "string",
+        "type": 1,
         "content": _controller.value.text,
-        "from": "me",
+        "fromA": false,
       };
-      
-      try{
-        // todo add the new message object to the list
-      _listOfMessages.add(newMessage);
-      
-      // todo clear the text
-      _controller.clear();
-      } catch (e){
+
+      try {
+        // add the new message object to the list
+        // make it dynamic
+        Firestore.instance
+          .collection(FIRE_MESSAGE_LIST)
+          .add(newMessage);
+
+        // clear the text
+        _controller.clear();
+      } catch (e) {
         print('CHAT VIEW > ERR > ${e.toString()}');
+        ///coba pake log(''CHAT VIEW > ERR > ${e.toString()}'');
       }
     }
   }

@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class ChatMessages extends StatefulWidget {
@@ -48,7 +49,13 @@ class _ChatMessagesState extends State<ChatMessages> {
           Expanded(
             child: Padding(
                 padding: EdgeInsets.symmetric(horizontal: 8.0),
-                child: Text(widget.message)),
+                child: Text(
+                    widget.message,
+                  textAlign: widget.isFriend
+                  ? TextAlign.start
+                  : TextAlign.end,
+                )
+            ),
           ),
           !widget.isFriend && widget.isNotPrevious
               ? CircleAvatar(
