@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_app_cht/scaffold.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 
@@ -8,6 +9,21 @@ class SigninView extends StatefulWidget {
 }
 
 class _SigninViewState extends State<SigninView> {
+  final GoogleSignIn _googleSignIn = GoogleSignIn();
+  final FirebaseAuth _auth = FirebaseAuth.instance;
+  Future<FirebaseUser> _handleSignIn() async {
+    GoogleSignInAccount googleUser = await _googleSignIn.signIn();
+    GoogleSignInAuthentication googleAuth = await googleUser.authentication;
+    final AuthCredential credential = GoogleAuthProvider.getCredential(
+      accessToken: googleAuth.accessToken,
+      idToken: googleAuth.idToken,
+    );
+    final AuthResult authResult = await _auth.signInWithCredential(credential);
+    FirebaseUser user = authResult.user;
+    print("signed in " + user.displayName);
+    return user;
+  }
+
   @override
   Widget build(BuildContext context) {
     return Material(
@@ -30,16 +46,19 @@ class _SigninViewState extends State<SigninView> {
                   RaisedButton.icon(
                     icon: Icon(Icons.person),
                     label: Text('Sign In with Google'),
-                    onPressed: () async {
+                    onPressed:(){
+                      _handleSignIn()
+                          .then((FirebaseUser user) => print(user))
+                          .catchError((e) => print(e));
+
+                      return MyChatApp;
+
+                        /*() async {
                       GoogleSignInAccount googlUser = await GoogleSignIn()
                       .signIn()
                       .timeout(Duration(seconds: 180));
                       final GoogleSignInAuthentication googlAuth =
-                      await googlUser.authentication;
-
-                      /*await FirebaseAuth.instance.signInWithGoogle(
-                        access
-                      );*/
+                      await googlUser.authentication;*/
                     },
                   ),
                   SizedBox(height: 40.0,),

@@ -4,6 +4,7 @@ import 'package:flutter_app_cht/views/HomeView.dart';
 import 'package:flutter_app_cht/views/SettingsView.dart';
 import 'package:flutter_app_cht/views/SigninView.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:google_sign_in/google_sign_in.dart';
 
 class MyChatApp extends StatefulWidget {
   @override
@@ -15,10 +16,21 @@ class _MyChatAppState extends State<MyChatApp> {
 
   bool isSignedIn = false;
 
-  FirebaseAuth _auth = FirebaseAuth.instance;
+//  FirebaseAuth _auth;
+  final FirebaseAuth _auth = FirebaseAuth.instance;
+  final GoogleSignIn _googleSignIn = GoogleSignIn();
+  Future<FirebaseUser> _handleSignIn() async {
+    GoogleSignInAccount googleUser = await _googleSignIn.signIn();
+    GoogleSignInAuthentication googleAuth = await googleUser.authentication;
+    final AuthCredential credential = GoogleAuthProvider.getCredential(
+      accessToken: googleAuth.accessToken,
+      idToken: googleAuth.idToken,
+    );
+    final AuthResult authResult = await _auth.signInWithCredential(credential);
+    FirebaseUser user = authResult.user;
+    print("signed in " + user.displayName);
 
-  @override
-  void initState() {
+
     /// LISTEN TO AUTH CHANGES
     _auth.onAuthStateChanged.listen((_user) {
       print('AUTH STATE CHANGED > $_user');
@@ -35,18 +47,45 @@ class _MyChatAppState extends State<MyChatApp> {
           /// THE USER IS NULL
           isSignedIn = false;
         });
-
       }
     });
 
+
+    return user;
+  }
+
+  @override
+  void initState() {
+    _handleSignIn()
+        .then((FirebaseUser user) => print(user))
+        .catchError((e) => print(e));
+
+    /*/// LISTEN TO AUTH CHANGES
+    _auth.onAuthStateChanged.listen((_user) {
+      print('AUTH STATE CHANGED > $_user');
+
+      if (_user != null) {
+        /// USER HAS SIGNED IN
+        setState(() {
+          isSignedIn = true;
+        });
+
+      } else {
+        /// USER HAS SIGNED OUT
+        setState(() {
+          /// THE USER IS NULL
+          isSignedIn = false;
+        });
+      }
+    });*/
   }
 
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: !isSignedIn
+      home: /*!isSignedIn //!isSignedIn
           ? SigninView()
-          : Scaffold(
+          : */Scaffold(
               appBar: AppBar(
                 title: Text("Chatta"),
                 actions: <Widget>[

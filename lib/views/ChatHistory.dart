@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_app_cht/ChatHead.dart';
 import 'package:flutter_app_cht/Helper.dart';
+import 'package:flutter_app_cht/constants/constants.dart' as Constants;
 
 class ChatHistory extends StatefulWidget {
   @override
@@ -22,7 +23,8 @@ class _ChatHistoryState extends State<ChatHistory> {
                 if (snapshot.hasData) {
                   Map<String, dynamic> tempMap = snapshot.data;
                   tempMap.forEach((_key, _value){
-                    print('VALUE ${_value["display_name"]}');
+                    ///print('VALUE ${_value["display_name"]}');
+                    print('VALUE ${_value[Constants.DISPLAY_NAME]}');
                     DateTime messageTime = DateTime.fromMillisecondsSinceEpoch(_value["last_message"]["timestamp"]);
                     templist.add(ChatHead(
                       friendName: _value["display_name"],
