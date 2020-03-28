@@ -19,4 +19,4 @@ const String FIRE_MESSAGE_DATA = '/message_data';
 const String FIRE_FRIENDA_FRIENDB = '/friendA##friendB';
 const String FIRE_MESSAGE_LIST = '/message_list';
 
-const String NO_MESSAGE_FOUND = 'No message found';
+const String NO_MESSAGE_FOUND = 'No message found.\nSend one now';

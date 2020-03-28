@@ -24,15 +24,13 @@ class _ChatHistoryState extends State<ChatHistory> {
               return Text('An error occured ${snapshot.error.toString()}');
 
             if (snapshot.connectionState == ConnectionState.active) {
-
               if (snapshot.hasData) {
 
                 return ListView.builder(
-
                   itemBuilder: (BuildContext context, int indeks){
+
                     DocumentSnapshot _data = snapshot.data.documents[indeks];
                     print('DATA > ${_data['content']}');
-
                     return ChatMessages(
                       isFriend: _data['fromA'],
                       isNotPrevious: true,
@@ -44,7 +42,8 @@ class _ChatHistoryState extends State<ChatHistory> {
 //                itemCount: snapshot.data,
                 );
               } else {
-                return Text(Constants.NO_MESSAGE_FOUND+'\nSend one now');
+                ///return Text(Constants.NO_MESSAGE_FOUND+'\nSend one now');
+                return Text(Constants.NO_MESSAGE_FOUND);
               }
 
             } else {

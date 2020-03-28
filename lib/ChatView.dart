@@ -1,8 +1,10 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_app_cht/ChatMessages.dart';
 import 'dart:convert';
 
 import 'package:flutter_app_cht/Helper.dart';
+import 'package:flutter_app_cht/constants/constants.dart';
 
 class ChatView extends StatefulWidget {
   ChatView({
@@ -70,28 +72,54 @@ class _ChatViewState extends State<ChatView> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text(widget.friendName),
-      ),
-      body: Column(
-        children: <Widget>[
-          Flexible(
-            child: ListView.builder(
-                itemCount: _listOfMessages.length,
-                itemBuilder: (BuildContext context, int indeks){
-                  Map<String, dynamic> _tempMesssage = _listOfMessages[indeks];
-                  print('_tempMesssage $_tempMesssage');
+      appBar: AppBar(title: Text(widget.friendName)),
 
-                  return ChatMessages(
-                    isFriend: true,
-                    isNotPrevious: _listOfMessages.length - 1 == indeks,
-                    message: _tempMesssage['content'],
-                    friendInitial: _tempMesssage['display_name'].toString().substring(0,1),
-                    avatarUrl: avatarUrl,
-                  );
-                },
-            )
-          ),
+      body: Column(children: <Widget>[
+        Flexible(
+            child: StreamBuilder(
+              stream: Firestore.instance.collection(
+                '${FIRE_MESSAGE_DATA+FIRE_FRIENDA_FRIENDB+FIRE_MESSAGE_LIST}'
+              ).snapshots(),
+              builder: (BuildContext context, AsyncSnapshot snapshot){
+                if(snapshot.hasError)
+                  return Text('An error occured ${snapshot.error.toString()}');
+
+                if(snapshot.connectionState == ConnectionState.active) {
+                  if(snapshot.hasData) {
+                    if(snapshot.data.documents.length > 0) {
+
+                      return ListView.builder(
+                        itemCount: _listOfMessages.length,
+                        itemBuilder: (BuildContext context, int indeks) {
+                          Map<String, dynamic> _tempMesssage = _listOfMessages[indeks];
+                          print('_tempMesssage $_tempMesssage');
+
+                          return ChatMessages(
+                            isFriend: true,
+                            isNotPrevious: _listOfMessages.length - 1 == indeks,
+                            message: _tempMesssage['content'],
+                            friendInitial: _tempMesssage['display_name']
+                                .toString()
+                                .substring(0, 1),
+                            avatarUrl: avatarUrl,
+                          );
+                        },
+                      );
+
+                    } else {
+                      return Text(NO_MESSAGE_FOUND);
+                    }
+
+                  } else {
+                    return Text(NO_MESSAGE_FOUND);
+                  }
+                } else {
+                  return CircularProgressIndicator();
+                }
+              },
+            ),
+            
+        ),
           Padding(
             padding: EdgeInsets.all(16.0),
             child: Row(
