@@ -89,19 +89,17 @@ class _ChatViewState extends State<ChatView> {
                     if(snapshot.data.documents.length > 0) {
 
                       return ListView.builder(
-                        itemCount: _listOfMessages.length,
+                        itemCount: snapshot.data.documents.length,
                         itemBuilder: (BuildContext context, int indeks) {
-                          Map<String, dynamic> _tempMesssage = _listOfMessages[indeks];
-                          print('_tempMesssage $_tempMesssage');
+                          DocumentSnapshot _document = snapshot.data[indeks];
 
                           return ChatMessages(
-                            isFriend: true,
-                            isNotPrevious: _listOfMessages.length - 1 == indeks,
-                            message: _tempMesssage['content'],
-                            friendInitial: _tempMesssage['display_name']
-                                .toString()
-                                .substring(0, 1),
-                            avatarUrl: avatarUrl,
+                            isFriend: _document[FROMA],
+                            ///fixme make this better
+                            isNotPrevious: snapshot.data.documents.length - 1 == indeks,
+                            message: _document['content'],
+                            friendInitial: 'T',
+                            avatarUrl: PATH_AVATAR_FILE,
                           );
                         },
                       );
@@ -120,43 +118,37 @@ class _ChatViewState extends State<ChatView> {
             ),
             
         ),
-          Padding(
+        Padding(
             padding: EdgeInsets.all(16.0),
             child: Row(
               crossAxisAlignment: CrossAxisAlignment.center,
               children: <Widget>[
-                Padding(
-                  padding: EdgeInsets.all(8.0),
-                  child: Center(
-                    child: IconButton(
-                        icon: Icon(
-                          Icons.add_a_photo,
-                          color: Colors.blue,
-                        ),
-                        onPressed: () {
-                          FocusScope.of(context).requestFocus(focusChatMessage);
-                        }),
+                Padding(padding: EdgeInsets.all(8.0),
+                  child: Center(child: IconButton(
+                      icon: Icon(Icons.add_a_photo, color: Colors.blue,),
+                      onPressed: () {
+                        FocusScope.of(context).requestFocus(focusChatMessage);
+                      }),
                   ),
                 ),
                 Expanded(
-                  child: TextFormField(
-                    controller: _controller,
-                    focusNode: focusChatMessage,
-                    onFieldSubmitted: (String _message) {
-                      submitText();
-                    },
-                    decoration: InputDecoration.collapsed(
+                    child: TextFormField(
+                      controller: _controller,
+                      focusNode: focusChatMessage,
+                      onFieldSubmitted: (String _message) {
+                        submitText();
+                      },
+                      decoration: InputDecoration.collapsed(
                         hintText: "Type here",
                         // labelText: "Your message",
                         // helperText: "Here's where the message goes"
-                    ),
-                  )
+                      ),
+                    )
                 ),
               ],
             )
-          )
-        ],
-      ),
+        )
+      ]),
     );
   }
 
