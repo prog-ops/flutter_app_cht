@@ -30,11 +30,11 @@ class _ChatHistoryState extends State<ChatHistory> {
                 return ListView.builder(
 
                   itemBuilder: (BuildContext context, int indeks){
-                    print(
-                        'DATA > ${snapshot.data.documents[indeks]['display_name']}'
-                    );
 
                     DocumentSnapshot _data = snapshot.data.documents[indeks];
+                    print(
+                        'DATA > ${_data['fromA']}'
+                    );
                     return ChatMessages(
                       isFriend: _data['fromA'],
                       isNotPrevious: true,
