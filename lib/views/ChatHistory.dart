@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_app_cht/ChatHead.dart';
 import 'package:flutter_app_cht/Helper.dart';
 import 'package:flutter_app_cht/constants/constants.dart' as Constants;
+import 'package:cloud_firestore/cloud_firestore.dart';
 
 class ChatHistory extends StatefulWidget {
   @override
@@ -13,7 +14,14 @@ class _ChatHistoryState extends State<ChatHistory> {
   Widget build(BuildContext context) {
     return Container(
       child: Center(
-        child: FutureBuilder(
+        child: StreamBuilder(
+          stream: Firestore.instance
+              .collection('/message_data/friendA##friendB/message_list')
+              .snapshots(),
+        )
+
+          /// todo cleanup later
+        /*FutureBuilder(
             future: loadJsonFileAsMap(context, 'assets/recentChats.json'),
             builder: (BuildContext context, AsyncSnapshot snapshot){
               List<ChatHead> templist = List();
@@ -44,7 +52,7 @@ class _ChatHistoryState extends State<ChatHistory> {
                 return CircularProgressIndicator();
               }
             },
-        )
+        )*/
       ),
     );
   }
