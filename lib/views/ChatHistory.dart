@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_app_cht/ChatHead.dart';
+import 'package:flutter_app_cht/ChatMessages.dart';
 import 'package:flutter_app_cht/Helper.dart';
 import 'package:flutter_app_cht/constants/constants.dart' as Constants;
 import 'package:cloud_firestore/cloud_firestore.dart';
@@ -18,6 +19,33 @@ class _ChatHistoryState extends State<ChatHistory> {
           stream: Firestore.instance
               .collection('/message_data/friendA##friendB/message_list')
               .snapshots(),
+          builder: (BuildContext context, AsyncSnapshot snapshot){
+            if(snapshot.hasError)
+              return Text('An error occured ${snapshot.error.toString()}');
+
+            if (snapshot.connectionState == ConnectionState.active) {
+
+              if (snapshot.hasData) {
+
+                return ListView.builder(
+
+                  itemBuilder: (BuildContext context, int indeks){
+                    print('DATA > ${snapshot.data.documents[indeks]['display_name']}');
+                    return ChatMessages(
+
+                    );
+                  },
+//                itemCount: snapshot.data,
+                );
+              } else {
+                return Text(Constants.NO_MESSAGE_FOUND+'\nSend one now');
+              }
+
+            } else {
+              return CircularProgressIndicator();
+            }
+
+          },
         )
 
           /// todo cleanup later
