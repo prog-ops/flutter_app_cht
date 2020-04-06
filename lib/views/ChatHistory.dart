@@ -27,9 +27,13 @@ class _ChatHistoryState extends State<ChatHistory> {
               if (snapshot.hasData) {
 
                 return ListView.builder(
-                  itemBuilder: (BuildContext context, int indeks){
+                  itemBuilder: (BuildContext context, int index){
 
-                    DocumentSnapshot _data = snapshot.data.documents[indeks];
+                    if (index > 3) {//ng
+                      print('Index is bigger than 3');
+                    }
+
+                    DocumentSnapshot _data = snapshot.data.documents[index];
                     print('DATA > ${_data['content']}');
                     return ChatMessages(
                       isFriend: _data['fromA'],

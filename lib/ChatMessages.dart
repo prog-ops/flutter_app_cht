@@ -50,7 +50,7 @@ class _ChatMessagesState extends State<ChatMessages> {
             child: Padding(
                 padding: EdgeInsets.symmetric(horizontal: 8.0),
                 child: Text(
-                    widget.message,
+                  widget.message,
                   textAlign: widget.isFriend
                   ? TextAlign.start
                   : TextAlign.end,

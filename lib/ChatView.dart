@@ -165,6 +165,7 @@ class _ChatViewState extends State<ChatView> {
         "type": 1,
         "content": _controller.value.text,
         "fromA": false,
+        "timestamp": DateTime.now().toUtc(),
       };
 
       try {
